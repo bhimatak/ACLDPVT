@@ -30,9 +30,12 @@ int main()
 {
     Test1 *t1;
     Test2 t2;
-
+    
     t1 = &t2;
+    t1->setX(2020);
     t1->disp();
+
+
     
     return 0;
 }

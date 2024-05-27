@@ -1,0 +1,14 @@
+Task 1:
+
+Define abstract class “Shape” that provides interface (through virtual functions) to the two derived classes “Rectangle” and “Triangle” to implement the function called “getArea()”. 
+
+The program will output area of rectangle and area of triangle.
+
+
+Task 2:
+Create an abstract class Car (model, price). Include get and set methods from these fields. The setPrice Method must be abstract. Create two subclasses Color() and Company() from Car and include appropriate setPrice method in these classes. 
+Finally write a code that uses Car class and sub classes to display information about instances.
+
+Task 3:
+Write a program to calculate bonus of the employees. The class master derives the information from both admin and account classes which intern derives information from class person. Create base and all derived classes having same member functions called getdata, display data and bonus. Create a base class pointer that capable of accessing data of any class and calculates bonus of the specified employee. 
+(Hint: Use virtual functions)
