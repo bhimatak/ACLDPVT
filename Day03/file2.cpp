@@ -30,7 +30,7 @@ public:
     {
         this->name = e.getName();
     }
-
+    /*
     void printDetails(){
         std::cout << "Employee details" << std::endl;
         cout<<"ID: "<<this->id<<endl;
@@ -44,7 +44,7 @@ public:
         this->setName();
         cout<<endl;
     }
-    /*
+    */
     virtual void printDetails(){
         std::cout << "Employee details" << std::endl;
         cout<<"ID: "<<this->id<<endl;
@@ -58,7 +58,7 @@ public:
         this->setName();
         cout<<endl;
     }
-    */
+    
 };
 
 class Manager : public Employee {
@@ -95,7 +95,7 @@ public:
         this->setDept();
     }
 
-    void printDetails(){
+    void printDetails() override{
         
         std::cout << "Manager details" << std::endl;
         Employee::printDetails();
@@ -155,21 +155,21 @@ public:
 int main() {
     
     /* this is for to use polymorphism */
-    /*
+    
     Employee* employees[2];
 
     employees[0] = new Manager();
     employees[1] = new Developer();
-    */
-    /*
+    
+    
     for (int i = 0; i < 2; ++i) {
-        employees[i]->getDetails(); // Polymorphic call
+        employees[i]->setDetails(); // Polymorphic call
     }
 
     for (int i = 0; i < 2; ++i) {
-        employees[i]->provideDetails(); // Polymorphic call
+        employees[i]->printDetails(); // Polymorphic call
     }
-    */
+    
 
    /*
     
@@ -182,7 +182,7 @@ int main() {
     for (int i = 0; i < 2; ++i) {
         delete employees[i];
     }
-    */
+    
 
    /* this is individual geting values to entity*/
 
