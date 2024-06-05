@@ -1,0 +1,119 @@
+        #include<iostream>
+	#include <string>
+	using namespace std;
+
+	int main ()
+	{
+		int num;
+		string str_bad = "wrong number used";
+		cout << "Input 1 or 2: ";
+		cin >> num;
+
+		try
+		{
+			if ( num == 1 )
+			{
+				throw 5;
+			}
+			if ( num == 2 )
+			{
+				throw 1.1f;
+			}
+			if ( num != 1 || num != 2 )
+			{
+				throw str_bad;
+			}
+		}
+
+		catch (int a)
+		{
+			cout << "An exception occurred!" << endl;
+			cout << "Exception number is: " << a << endl;
+		}
+		catch (float b)
+		{
+			cout << "An exception occurred!" << endl;
+			cout << "Exception number is: " << b << endl;
+		}
+		catch (...)
+		{
+			cout << "A default exception occurred!" << endl;
+			cout << "Why? : " << str_bad << endl;
+		}
+		return 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+void MyFunc( void );
+
+class CTest
+{
+public:
+    CTest(){};
+    ~CTest(){};
+    const char *ShowReason() const { return "Exception in CTest class."; }
+
+};
+
+class CDtorDemo
+{
+public:
+    CDtorDemo();
+    ~CDtorDemo();
+};
+
+CDtorDemo::CDtorDemo()
+{
+    cout << "Constructing CDtorDemo." << endl;
+}
+
+CDtorDemo::~CDtorDemo()
+{
+    cout << "Destructing CDtorDemo." << endl;
+}
+
+void MyFunc()
+{
+
+    CDtorDemo D;
+    cout<< "In MyFunc(). Throwing CTest exception." << endl;
+    throw CTest();
+}
+
+int main()
+{
+    cout << "In main." << endl;
+    try
+    {
+        cout << "In try block, calling MyFunc()." << endl;
+        MyFunc();
+    }
+    catch( CTest E )
+    {
+        cout << "In catch handler." << endl;
+        cout << "Caught CTest exception type: ";
+        cout << E.ShowReason() << endl;
+    }
+    catch( char *str )
+    {
+        cout << "Caught some other exception: " << str << endl;
+    }
+    cout << "Back in main. Execution resumes here." << endl;
+    return 0;
+}
